@@ -1,58 +1,117 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { ExternalLink, Github, Lock } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import cbtScreenshot1 from '../../asset/web/image.png';
+import cbtScreenshot2 from '../../asset/web/image (1).png';
+import cbtScreenshot3 from '../../asset/web/image (2).png';
+import cbtScreenshot4 from '../../asset/web/WhatsApp Image 2026-04-20 at 2.42.24 AM.jpeg';
 
 export function ProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [currentScreenshots, setCurrentScreenshots] = useState<{ [key: number]: number }>({});
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Platform e-commerce modern dengan fitur real-time inventory dan payment gateway integration",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.unsplash.com/photo-1644337540803-2b2fb3cebf12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVza3xlbnwxfHx8fDE3Njc3NDM5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "CBT UKOM E-Learning Platform",
+      description: "Platform ujian berbasis komputer lengkap dengan bank soal, timer real-time, video pembelajaran, sistem penilaian otomatis, dan laporan hasil tryout untuk persiapan UKOM",
+      tags: ["Laravel", "React", "MySQL", "Video Streaming"],
+      screenshots: [
+        cbtScreenshot1,
+        cbtScreenshot2,
+        cbtScreenshot3,
+        cbtScreenshot4
+      ],
+      image: cbtScreenshot1,
+      github: "",
+      demo: "",
+      isPrivate: true,
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Task Management App",
-      description: "Aplikasi produktivitas dengan drag-and-drop interface dan kolaborasi tim real-time",
-      tags: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
-      image: "https://images.unsplash.com/photo-1767473907132-9e52351d023a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMHBhc3RlbHxlbnwxfHx8fDE3Njc4Mjk5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Human Resource Management System",
+      description: "Sistem manajemen SDM lengkap dengan fitur absensi, payroll, cuti karyawan, dan performance tracking untuk efisiensi HR",
+      tags: ["Laravel", "MySQL", "Bootstrap", "jQuery"],
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxocnxlbnwxfHx8fDE3Njc4MDk1NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "https://github.com/Gunawan617/HumanResource",
+      demo: "",
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: "Analytics Dashboard",
-      description: "Dashboard analytics dengan visualisasi data interaktif dan custom reporting",
-      tags: ["React", "D3.js", "Express", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1644337540803-2b2fb3cebf12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVza3xlbnwxfHx8fDE3Njc3NDM5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Men Parfume - E-Commerce Premium",
+      description: "Platform e-commerce wewangian premium eksklusif dengan katalog produk, shopping cart, dan sistem pembayaran terintegrasi",
+      tags: ["Laravel", "MySQL", "Tailwind CSS", "Payment Gateway"],
+      image: "https://images.unsplash.com/photo-1541643600914-78b084683601?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXJmdW1lJTIwbHV4dXJ5fGVufDF8fHx8MTc2NzgwOTU1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "",
+      demo: "https://parfumes.edgeone.dev/",
+      color: "from-amber-500 to-orange-500"
+    },
+    {
+      title: "Scholar System - Platform Artikel Ilmiah",
+      description: "Sistem web artikel ilmiah berbasis Laravel 11 fullstack dengan React + Filament yang terindeks Google Scholar. Panel admin untuk dosen, upload PDF dengan metadata, komentar nested, dan SEO optimized",
+      tags: ["Laravel 11", "React", "Filament", "Google Scholar", "SEO"],
+      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2FkZW1pYyUyMHBhcGVyfGVufDF8fHx8MTc2NzgwOTU1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "https://github.com/Gunawan617/ArtikelJurnal",
+      demo: "",
+      color: "from-indigo-500 to-purple-500"
+    },
+    {
+      title: "IoT Firmware Development",
+      description: "Pengembangan firmware untuk perangkat IoT dengan komunikasi sensor, data logging, dan remote monitoring berbasis embedded C/C++",
+      tags: ["C/C++", "Arduino", "ESP32", "MQTT"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpb3QlMjBkZXZpY2V8ZW58MXx8fHwxNzY3ODA5NTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "",
+      demo: "",
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Social Media App",
-      description: "Platform social media dengan fitur posting, messaging, dan content discovery",
-      tags: ["React Native", "Firebase", "Redux", "Node.js"],
-      image: "https://images.unsplash.com/photo-1767473907132-9e52351d023a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMHBhc3RlbHxlbnwxfHx8fDE3Njc4Mjk5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      title: "Learning Management System",
-      description: "Platform pembelajaran online dengan video streaming dan progress tracking",
-      tags: ["Next.js", "Prisma", "AWS", "Stripe"],
-      image: "https://images.unsplash.com/photo-1644337540803-2b2fb3cebf12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwZGVza3xlbnwxfHx8fDE3Njc3NDM5NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "CMS Landing Page System",
+      description: "Content Management System untuk landing page dinamis dengan editor WYSIWYG, media management, dan SEO optimization",
+      tags: ["Laravel", "React", "TinyMCE", "MySQL"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbXMlMjBjb250ZW50fGVufDF8fHx8MTc2NzgwOTU1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "",
+      demo: "",
       color: "from-indigo-500 to-violet-500"
     },
     {
-      title: "Portfolio Website Builder",
-      description: "Drag-and-drop website builder untuk membuat portfolio profesional dengan mudah",
-      tags: ["React", "TypeScript", "Tailwind", "Vercel"],
-      image: "https://images.unsplash.com/photo-1767473907132-9e52351d023a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMHBhc3RlbHxlbnwxfHx8fDE3Njc4Mjk5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      color: "from-yellow-500 to-amber-500"
+      title: "Embedded System Integration",
+      description: "Integrasi sistem embedded untuk monitoring dan kontrol perangkat elektronik dengan interface web-based dashboard",
+      tags: ["C/C++", "Python", "React", "WebSocket"],
+      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJvbmljcyUyMGNpcmN1aXR8ZW58MXx8fHwxNzY3ODA5NTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      github: "",
+      demo: "",
+      color: "from-red-500 to-pink-500"
     }
   ];
+
+  // Auto-rotate screenshots for projects with multiple images
+  useEffect(() => {
+    const intervals: ReturnType<typeof setInterval>[] = [];
+    
+    projects.forEach((project, index) => {
+      if (project.screenshots && project.screenshots.length > 1) {
+        const interval = setInterval(() => {
+          setCurrentScreenshots(prev => ({
+            ...prev,
+            [index]: ((prev[index] || 0) + 1) % project.screenshots!.length
+          }));
+        }, 3000); // Change image every 3 seconds
+        intervals.push(interval);
+      }
+    });
+
+    return () => intervals.forEach(interval => clearInterval(interval));
+  }, []);
+
+  const getProjectImage = (project: typeof projects[0], index: number) => {
+    if (project.screenshots && project.screenshots.length > 0) {
+      return project.screenshots[currentScreenshots[index] || 0];
+    }
+    return project.image;
+  };
 
   return (
     <section ref={ref} className="py-32 bg-gradient-to-b from-white to-purple-50" id="projects">
@@ -85,23 +144,67 @@ export function ProjectsSection() {
                 <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
                   <div className="relative overflow-hidden h-64">
                     <ImageWithFallback
-                      src={project.image}
+                      src={getProjectImage(project, index)}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                    
+                    {project.isPrivate && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                        <Lock className="w-3.5 h-3.5 text-gray-600" />
+                        <span className="text-xs font-medium text-gray-700">Private Project</span>
+                      </div>
+                    )}
+
+                    {project.screenshots && project.screenshots.length > 1 && (
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1.5">
+                        {project.screenshots.map((_, screenshotIndex) => (
+                          <div
+                            key={screenshotIndex}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                              (currentScreenshots[index] || 0) === screenshotIndex
+                                ? 'w-6 bg-white'
+                                : 'w-1.5 bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    )}
                     
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: selectedProject === index ? 1 : 0 }}
                       className="absolute inset-0 flex items-center justify-center gap-4"
                     >
-                      <button className="p-3 bg-white rounded-full shadow-lg hover:scale-110 transition-transform">
-                        <ExternalLink className="w-5 h-5 text-gray-700" />
-                      </button>
-                      <button className="p-3 bg-white rounded-full shadow-lg hover:scale-110 transition-transform">
-                        <Github className="w-5 h-5 text-gray-700" />
-                      </button>
+                      {project.isPrivate ? (
+                        <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl">
+                          <p className="text-sm text-gray-700 font-medium">Confidential Client Project</p>
+                        </div>
+                      ) : (
+                        <>
+                          {project.demo && (
+                            <a 
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-3 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+                            >
+                              <ExternalLink className="w-5 h-5 text-gray-700" />
+                            </a>
+                          )}
+                          {project.github && (
+                            <a 
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-3 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
+                            >
+                              <Github className="w-5 h-5 text-gray-700" />
+                            </a>
+                          )}
+                        </>
+                      )}
                     </motion.div>
                   </div>
 

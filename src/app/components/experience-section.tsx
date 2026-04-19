@@ -11,47 +11,29 @@ export function ExperienceSection() {
     {
       type: "work",
       icon: Briefcase,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Indonesia",
-      period: "2022 - Sekarang",
-      description: "Memimpin tim frontend untuk mengembangkan aplikasi enterprise dengan React dan TypeScript. Meningkatkan performa aplikasi hingga 60%.",
+      title: "Software Engineer",
+      company: "PT Optimal Untuk Negeri",
+      period: "Agustus 2025 - November 2025",
+      description: "Membangun platform e-learning CBT UKOM dengan Laravel & React untuk sistem ujian berbasis komputer. Mengintegrasikan CMS untuk landing page dinamis dan fitur artikel populer dosen, sambil mengelola dokumentasi teknis dan aset IT.",
       color: "from-blue-500 to-cyan-500"
     },
     {
       type: "work",
       icon: Briefcase,
-      title: "Full Stack Developer",
-      company: "Digital Agency",
-      period: "2020 - 2022",
-      description: "Mengembangkan berbagai website dan aplikasi untuk klien dari berbagai industri. Fokus pada responsive design dan user experience.",
+      title: "Researcher Elektronika",
+      company: "PT Delameta Bilano",
+      period: "Januari 2023 - Februari 2025",
+      description: "Mengembangkan firmware IoT berbasis C/C++ dan merancang sistem embedded untuk integrasi perangkat IoT. Melakukan troubleshooting perangkat elektronik, debugging sistem embedded, serta optimalisasi performa untuk memastikan sistem berjalan optimal.",
       color: "from-purple-500 to-pink-500"
     },
     {
       type: "education",
       icon: GraduationCap,
-      title: "Bachelor of Computer Science",
-      company: "Universitas Indonesia",
-      period: "2016 - 2020",
-      description: "Lulus dengan IPK 3.8. Fokus pada Software Engineering dan Human-Computer Interaction.",
+      title: "D3 Teknik Komputer",
+      company: "Politeknik / Universitas",
+      period: "2020 - 2023",
+      description: "Fokus pada Software Engineering, Embedded Systems, dan IoT Development. Membangun fondasi kuat dalam pemrograman, sistem komputer, dan integrasi hardware-software.",
       color: "from-green-500 to-emerald-500"
-    },
-    {
-      type: "work",
-      icon: Briefcase,
-      title: "UI/UX Designer Intern",
-      company: "Startup Studio",
-      period: "2019 - 2020",
-      description: "Merancang interface untuk berbagai aplikasi mobile dan web. Melakukan user research dan usability testing.",
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      type: "achievement",
-      icon: Award,
-      title: "Hackathon Winner",
-      company: "National Tech Competition",
-      period: "2019",
-      description: "Juara 1 hackathon nasional dengan membuat aplikasi edukasi berbasis AI untuk anak-anak.",
-      color: "from-yellow-500 to-amber-500"
     }
   ];
 

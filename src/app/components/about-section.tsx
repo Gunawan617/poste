@@ -10,9 +10,9 @@ export function AboutSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const passions = [
-    { icon: Code, title: "Clean Code", desc: "Menulis kode yang rapi dan maintainable" },
-    { icon: Palette, title: "UI/UX Design", desc: "Menciptakan pengalaman yang indah" },
-    { icon: Heart, title: "Problem Solving", desc: "Mencari solusi kreatif untuk tantangan" }
+    { icon: Code, title: "Full-Stack Development", desc: "Membangun solusi web yang robust dengan Laravel & React" },
+    { icon: Palette, title: "IoT & Embedded Systems", desc: "Mengintegrasikan hardware dan software untuk sistem cerdas" },
+    { icon: Heart, title: "Problem Solving", desc: "Menganalisis dan menyelesaikan tantangan teknis kompleks" }
   ];
 
   return (
@@ -54,10 +54,10 @@ export function AboutSection() {
               className="space-y-6"
             >
               <p className="text-lg text-gray-600 leading-relaxed">
-                Saya adalah seorang <strong className="text-gray-900">developer dan designer</strong> yang percaya bahwa teknologi terbaik adalah yang terasa natural dan menyenangkan untuk digunakan.
+                Lulusan <strong className="text-gray-900">D3 Teknik Komputer</strong> dengan passion di bidang software development dan riset sistem. Saya percaya teknologi terbaik adalah yang mengintegrasikan <strong className="text-gray-900">hardware dan software</strong> secara seamless untuk menciptakan solusi yang efisien dan andal.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Dengan pengalaman lebih dari <strong className="text-gray-900">5 tahun</strong> di industri digital, saya fokus menciptakan produk yang tidak hanya cantik, tapi juga fungsional dan bermakna bagi penggunanya.
+                Dari membangun <strong className="text-gray-900">platform e-learning CBT UKOM</strong> hingga mengembangkan <strong className="text-gray-900">firmware IoT berbasis C/C++</strong>, saya menggabungkan keahlian full-stack development dengan pemahaman mendalam tentang sistem embedded untuk menciptakan solusi teknologi yang terintegrasi dan berdampak nyata.
               </p>
 
               <div className="space-y-4 mt-8">
